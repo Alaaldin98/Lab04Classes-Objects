@@ -2,7 +2,7 @@
 
 namespace TicTacToeGameConsole
 {
-    class Program
+   public class Program
     {
         static void Main(string[] args)
         {
@@ -42,7 +42,7 @@ namespace TicTacToeGameConsole
             }
         }
 
-        private static int CheckWinner(char[] gameMarkers)
+        public static int CheckWinner(char[] gameMarkers)
         {
             // 3.3 If we have a winner, announce who won and stop the game
             if (IsGameWinner(gameMarkers))
@@ -59,7 +59,7 @@ namespace TicTacToeGameConsole
             return 0;
         }
 
-        private static bool IsGameDraw(char[] gameMarkers)
+        public static bool IsGameDraw(char[] gameMarkers)
         {
             return gameMarkers[0] != '1' &&
                    gameMarkers[1] != '2' &&
@@ -72,7 +72,7 @@ namespace TicTacToeGameConsole
                    gameMarkers[8] != '9';
         }
 
-        private static bool IsGameWinner(char[] gameMarkers)
+        public static bool IsGameWinner(char[] gameMarkers)
         {
             if (IsGameMarkersTheSame(gameMarkers, 0, 1, 2))
             {
@@ -117,12 +117,12 @@ namespace TicTacToeGameConsole
             return false;
         }
 
-        private static bool IsGameMarkersTheSame(char[] testGameMarkers, int pos1, int pos2, int pos3)
+        public static bool IsGameMarkersTheSame(char[] testGameMarkers, int pos1, int pos2, int pos3)
         {
             return testGameMarkers[pos1].Equals(testGameMarkers[pos2]) && testGameMarkers[pos2].Equals(testGameMarkers[pos3]);
         }
 
-        private static void GameEngine(char[] gameMarkers, int currentPlayer)
+        public static void GameEngine(char[] gameMarkers, int currentPlayer)
         {
             bool notValidMove = true;
 
@@ -149,7 +149,7 @@ namespace TicTacToeGameConsole
 
                     if (currentMarker.Equals('X') || currentMarker.Equals('O'))
                     {
-                        Console.WriteLine("Placement has already a marker please select anotyher placement.");
+                        Console.WriteLine("Placement has already a marker please select another placement.");
                     }
                     else
                     {
@@ -160,12 +160,12 @@ namespace TicTacToeGameConsole
                 }
                 else
                 {
-                    Console.WriteLine("Invalid value please select anotyher placement.");
+                    Console.WriteLine("Invalid value please select another placement.");
                 }
             } while (notValidMove);
         }
 
-        private static char GetPlayerMarker(int player)
+        public static char GetPlayerMarker(int player)
         {
             if (player % 2 == 0)
             {
@@ -175,11 +175,11 @@ namespace TicTacToeGameConsole
             return 'X';
         }
 
-        static void HeadsUpDisplay(int PlayerNumber)
+        public static void HeadsUpDisplay(int PlayerNumber)
         {
             // 1.  Provide instructions
             // 1.1 A greeting
-            Console.WriteLine("Welcome to the Super Duper Tic Tac Toe Game!");
+            Console.WriteLine("Welcome to the Tic Tac Toe Game!");
 
             // 1.2 Display player sign, Player 1 is X and Player 2 is O
             Console.WriteLine("Player 1: X");
@@ -192,7 +192,7 @@ namespace TicTacToeGameConsole
             Console.WriteLine();
         }
 
-        static void DrawGameboard(char[] gameMarkers)
+        public static void DrawGameboard(char[] gameMarkers)
         {
             // 2.  Draw the game board
             // 2.1 Game will have 3 rows and 3 columns will be numbered 1 through 9
@@ -204,7 +204,7 @@ namespace TicTacToeGameConsole
             Console.WriteLine($" {gameMarkers[6]} | {gameMarkers[7]} | {gameMarkers[8]} ");
         }
 
-        static int GetNextPlayer(int player)
+      public  static int GetNextPlayer(int player)
         {
             if (player.Equals(1))
             {
